@@ -1,4 +1,4 @@
-const { readFileSync } = require("fs");
+const { readLines } = require("./helpers");
 
 const statusScore = {
   win: 6,
@@ -46,8 +46,7 @@ const sample = `A Y
 B X
 C Z`;
 
-const data = readFileSync("./day2.txt", "utf-8");
-const lines = data.split("\n").map((line) => line.split(" "));
+const lines = readLines("./day2.txt", ["\n", " "]);
 
 const ans = lines.reduce((acc, line) => {
   const currentScore =

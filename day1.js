@@ -1,7 +1,6 @@
-const { readFileSync } = require("fs");
+const { readLines } = require("./helpers");
 
-const data = readFileSync("./day1.txt", "utf-8");
-const lines = data.split("\n\n").map((x) => x.split("\n"));
+const lines = readLines("./day1.txt", ["\n\n", "\n"]);
 
 const ans = lines.map((line) =>
   line.reduce((acc, curr) => {
