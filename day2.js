@@ -36,6 +36,12 @@ const pairs = {
   C: "Z",
 };
 
+const hints = {
+  X: "loss",
+  Y: "draw",
+  Z: "win",
+};
+
 const sample = `A Y
 B X
 C Z`;
@@ -44,17 +50,8 @@ const data = readFileSync("./day2.txt", "utf-8");
 const lines = data.split("\n").map((line) => line.split(" "));
 
 const ans = lines.reduce((acc, line) => {
-  let gameStatus;
-  if (line[1] === "X") {
-    gameStatus = "loss";
-  } else if (line[1] === "Y") {
-    gameStatus = "draw";
-  } else {
-    gameStatus = "win";
-  }
-
   const currentScore =
-    statusScore[gameStatus] + scores[conditions[line[0]][gameStatus]];
+    statusScore[hints[line[1]]] + scores[conditions[line[0]][hints[line[1]]]];
   return acc + currentScore;
 }, 0);
 
