@@ -97,5 +97,5 @@ const solveB = () => {
   return filledBuckets.reduce((acc, curr) => (acc += curr[0]), "");
 };
 
-// console.log(solveA());
+console.log(solveA());
 console.log(solveB());
